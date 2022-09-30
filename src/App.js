@@ -16,12 +16,29 @@ class App extends Component {
     hasTrunfo: false,
   }
 
+  // FUNCAO PARA COLOCAR TUDO QUE SE DIGITA NO ESTADO;
   onInputChange = ({ target }) => {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [target.name]: value,
     })
   }
+
+  // FUNCAO PARA VALIDAR O BOTAO DE ENVIAR;
+  isSaveButtonDisabled = () => {
+    const { cardName, cardDescription, cardImage, cardAttr1, cardAttr2, cardAttr3 } = this.state;
+    if (cardName.length > 0
+      && cardDescription.length > 0
+      && cardImage.length > 0
+      && +cardAttr1 >= 0 && +cardAttr1 <=90
+      && +cardAttr2 >= 0 && +cardAttr2 <=90
+      && +cardAttr3 >= 0 && +cardAttr3 <=90
+      && +cardAttr1 + +cardAttr2 + +cardAttr3 <= 210) {
+      return false;
+    }
+    return true;
+  }
+
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage, cardRare } = this.state;
     return (
@@ -39,7 +56,7 @@ class App extends Component {
             cardRare={cardRare}
             cardTrunfo={false}
             hasTrunfo={false}
-            isSaveButtonDisabled={false}
+            isSaveButtonDisabled={ this.isSaveButtonDisabled() }
             onInputChange={ this.onInputChange }
             onSaveButtonClick={ () => {} }
           /> 
@@ -51,7 +68,7 @@ class App extends Component {
         cardAttr3={cardAttr3}
         cardImage={cardImage}
         cardRare={cardRare}
-        cardTrunfo={true}
+        cardTrunfo={false}
         /> 
     </div>
     );
