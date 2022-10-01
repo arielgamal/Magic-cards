@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Form extends Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage, cardRare, cardTrunfo,
-      isSaveButtonDisabled, onInputChange, onSaveButtonClick } = this.props;
+      isSaveButtonDisabled, onInputChange, onSaveButtonClick, hasTrunfo } = this.props;
     return (
       <form className="form">
         <label>
@@ -38,10 +38,16 @@ class Form extends Component {
             <option>Super Raro</option>
           </select>
         </label>
-
-        <label> Trunfo
+      
+        {
+          !hasTrunfo 
+          ?         
+        <label> TRUNFO
           <input type="checkbox" name="cardTrunfo" checked={ cardTrunfo }  onChange={ onInputChange } />
         </label>
+        :
+        <h3>Voce ja tem um trunfo no seu baralho</h3>
+        }
 
         <button type="button" disabled={ isSaveButtonDisabled } onClick={ onSaveButtonClick }>Salvar Carta</button>
 

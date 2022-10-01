@@ -64,10 +64,15 @@ class App extends Component {
       cardRare: '',
       cardTrunfo: false, 
     }));
+    if (cardTrunfo) {
+      this.setState({
+        hasTrunfo: true,
+      });
+    }
   }
 
   render() {
-    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage, cardRare } = this.state;
+    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage, cardRare, cardTrunfo, hasTrunfo } = this.state;
     return (
     <div className="App">
         <header className="App-header">
@@ -81,8 +86,8 @@ class App extends Component {
             cardAttr3={cardAttr3}
             cardImage={cardImage}
             cardRare={cardRare}
-            cardTrunfo={false}
-            hasTrunfo={false}
+            cardTrunfo={cardTrunfo}
+            hasTrunfo={hasTrunfo}
             isSaveButtonDisabled={ this.isSaveButtonDisabled() }
             onInputChange={ this.onInputChange }
             onSaveButtonClick={ this.onSaveButtonClick }
