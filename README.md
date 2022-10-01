@@ -49,20 +49,20 @@ Neste aplicativo, voce será capaz de criar sua própria carta.
 
 - Após salvar as informações, o campo Raridade deve conter o valor selecione.
 
-### 7. [] - Criar a validação das cartas TRUNFO
+### 7. [X] - Criar a validação das cartas TRUNFO
 
 #### Só pode existir apenas uma carta TRUNFO. Validação para que somente 1 carta TRUNFO seja salva no seu baralho.
 
 * Para que tenha apenas uma carta salva como TRUNFO é preciso que o input do TRUNFO esteja checked na hora de salvar a carta. Fiz a validação no próprio input do TRUNFO com prop hasTrunfo do componente Form.
 
-* Caso já exista uma carta Super TRUNFO em seu baralho, o formulário de criação de carta não deverá exibir mais o checkbox. No seu lugar deve ser renderizada a frase: "Você já tem um Super Trunfo em seu baralho".
+* Caso já exista uma carta Super TRUNFO em seu baralho, o formulário de criação de carta não deverá exibir mais o checkbox. No seu lugar deve ser renderizada a frase: "Você já tem um TRUNFO em seu baralho".
 
  **Utilizei a renderização condicional do React nesse requisito.**
  Se hasTrunfo for true, irá renderizar uma mensagem, senão renderiza o input TRUNFO.
 
  #### No componente APP, dentro da função onSavedButtonClick, ao clicar ele faz uma conferencia, se cardTrunfo for true ao clicar, o estado hasTrunfo fica verdadeiro(impedindo de se criar outra carta TRUNFO).
 
-* Será validado se o checkbox do Super Trunfo é redenderizado ao carregar a página, e se o texto "Você já tem um Super Trunfo em seu baralho" é renderizado caso já exista uma carta Super Trunfo.
+* Será validado se o checkbox do TRUNFO é redenderizado ao carregar a página, e se o texto "Você já tem um TRUNFO em seu baralho" é renderizado caso já exista uma carta TRUNFO.
 
 ### 8. [] - Exibir as cartas salvas no estado
 ### 9. [] - Criar o botao de remover carta do baralho
