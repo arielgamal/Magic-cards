@@ -40,30 +40,30 @@ class App extends Component {
     return true;
   }
 
-  // FUNÇÃP PARA SALVAR A CARTA
+  // FUNÇÃO PARA SALVAR A CARTA
   onSaveButtonClick = () => {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage, cardRare, cardTrunfo } = this.state;
-const card = {
-  cardName,
-  cardDescription,
-  cardAttr1,
-  cardAttr2,
-  cardAttr3,
-  cardImage,
-  cardRare,
-  cardTrunfo  
-};
-  this.setState((prev) => ({
-    savedCards: [...prev.savedCards, card],
-    cardName: '',
-    cardDescription: '',
-    cardAttr1: '',
-    cardAttr2: '', 
-    cardAttr3: '',
-    cardImage: '',
-    cardRare: '',
-    cardTrunfo: false, 
-  }));
+    const card = {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo  
+    };
+    this.setState((prev) => ({
+      savedCards: [...prev.savedCards, card],
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '',
+      cardAttr2: '', 
+      cardAttr3: '',
+      cardImage: '',
+      cardRare: '',
+      cardTrunfo: false, 
+    }));
   }
 
   render() {

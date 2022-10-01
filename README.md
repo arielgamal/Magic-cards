@@ -39,7 +39,7 @@ Neste aplicativo, voce será capaz de criar sua própria carta.
 
 ### 6. [X] - Criar a função do botao salvar
 
-#### Criar um novo estado na sua aplicação para salvar a lista de cartas existentes no seu baralho. Salvar cada carta em um formato de objeto e ter um array com esses objetos no seu estado.
+#### Criar um novo estado na aplicação para salvar a lista de cartas existentes no seu baralho. Salvar cada carta em um formato de objeto e ter um array com esses objetos no seu estado.
 
 - Ao clicar no botão as informações que foram preenchidas no formulário deverão ser salvas no estado da sua aplicação.
 
