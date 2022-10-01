@@ -43,7 +43,7 @@ class Form extends Component {
           <input type="checkbox" name="cardTrunfo" checked={ cardTrunfo }  onChange={ onInputChange } />
         </label>
 
-        <button disabled={ isSaveButtonDisabled } onClick={ onSaveButtonClick }>Salvar</button>
+        <button type="button" disabled={ isSaveButtonDisabled } onClick={ onSaveButtonClick }>Salvar Carta</button>
 
       </form>
     )

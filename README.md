@@ -37,7 +37,18 @@ Neste aplicativo, voce será capaz de criar sua própria carta.
 * Será validado se o botão salvar está desabilitado se a somatória dos campos de atributos for maior que 210.
 * Será validado se o botão salvar é habilitado ao preencher todos os campos do formulário corretamente.
 
-### 6. [] - Criar a função do botao salvar
+### 6. [X] - Criar a função do botao salvar
+
+#### Criar um novo estado na sua aplicação para salvar a lista de cartas existentes no seu baralho. Salvar cada carta em um formato de objeto e ter um array com esses objetos no seu estado.
+
+- Ao clicar no botão as informações que foram preenchidas no formulário deverão ser salvas no estado da sua aplicação.
+
+- Após salvar as informações, os inputs do formulário Nome, Descrição e Imagem e o conteúdo do preview da carta deverão ser limpos.
+
+- Após salvar as informações, os três campos de atributos devem ter valor 0.
+
+- Após salvar as informações, o campo Raridade deve conter o valor selecione.
+
 ### 7. [] - Criar a validação das cartas
 ### 8. [] - Exibir as cartas salvas no estado
 ### 9. [] - Criar o botao de remover carta do baralho

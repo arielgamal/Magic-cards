@@ -14,6 +14,7 @@ class App extends Component {
     cardRare: '',
     cardTrunfo: false,
     hasTrunfo: false,
+    savedCards: [],
   }
 
   // FUNCAO PARA COLOCAR TUDO QUE SE DIGITA NO ESTADO;
@@ -39,6 +40,32 @@ class App extends Component {
     return true;
   }
 
+  // FUNÇÃP PARA SALVAR A CARTA
+  onSaveButtonClick = () => {
+    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage, cardRare, cardTrunfo } = this.state;
+const card = {
+  cardName,
+  cardDescription,
+  cardAttr1,
+  cardAttr2,
+  cardAttr3,
+  cardImage,
+  cardRare,
+  cardTrunfo  
+};
+  this.setState((prev) => ({
+    savedCards: [...prev.savedCards, card],
+    cardName: '',
+    cardDescription: '',
+    cardAttr1: '',
+    cardAttr2: '', 
+    cardAttr3: '',
+    cardImage: '',
+    cardRare: '',
+    cardTrunfo: false, 
+  }));
+  }
+
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage, cardRare } = this.state;
     return (
@@ -58,7 +85,7 @@ class App extends Component {
             hasTrunfo={false}
             isSaveButtonDisabled={ this.isSaveButtonDisabled() }
             onInputChange={ this.onInputChange }
-            onSaveButtonClick={ () => {} }
+            onSaveButtonClick={ this.onSaveButtonClick }
           /> 
         <Card
         cardName={cardName}
