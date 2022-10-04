@@ -2,6 +2,17 @@
   text-align: center;
 }
 
+.nav  {
+  margin-top: 3px;
+  border: 1px solid #001338;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav1 {
+  display: flex;
+  justify-content: center;
+}
 
 .App-header {
   background-color: #001338;
@@ -14,13 +25,24 @@
 
 .form {
   display: flex;
+  justify-content: center;
+  width: 350px;
   flex-direction: column;
   border: 1px solid black;
   margin: 5px;
 }
 
+.card-container {
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  height: 500px;
+  width: 350px;
+}
+
 .card {
   margin-left: 35%;
+  flex-direction: column;
   width: 280px;
   height: 430px;
   padding: 5px;

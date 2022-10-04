@@ -4,9 +4,12 @@ class Card extends Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage, cardRare, cardTrunfo } = this.props;
     return(
-      <div className="card">
+      <div className="card-container">
+        <div style={{
+          display: cardName.length ? 'flex' : 'none',
+        }} className="card">
         <h2>
-          {cardName}
+        {cardName}
         </h2>
         <img src={ cardImage } alt={ cardName }/>
         <p>{cardDescription}</p>
@@ -15,6 +18,7 @@ class Card extends Component {
         <p>Defesa: {cardAttr3}</p>
         <h3>Tipo: {cardRare}</h3>
         {cardTrunfo === true && <p>SUPER TRUNFO</p>}
+        </div>
       </div>
     )
   }

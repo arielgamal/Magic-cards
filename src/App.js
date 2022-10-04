@@ -16,6 +16,7 @@ class App extends Component {
     cardTrunfo: false,
     hasTrunfo: false,
     savedCards: [],
+    cardList: [],
     filtro: 'todas'
   }
 
@@ -73,34 +74,39 @@ class App extends Component {
     }
   }
 
-    //FUNCAO PARA REMOVER UMA CARTA DO ESTADO (INCOMPLETO)
+    //FUNCAO PARA REMOVER UMA CARTA DO ESTADO
     // ESTA FUNÇÃO é uma HOF que filtra o elementos que ao clicar no botao excluir(que possui o cardName) retorna um array sem o elemento com aquele nome.
   removeCard = ({target}) => {
+    const {savedCards} = this.state;
     this.setState((prev) => ({
       savedCards: prev.savedCards.filter((element) => (target.name !== element.cardName)),
-    }));
+    }), () => {
+      if (savedCards.some((element) => element.cardTrunfo)) {
+        this.setState({
+          hasTrunfo: false,
+        })
+      }
+    });
   }
 
-  // FUNÇÃO QUE FILTRA POR NOME (INCOMPLETO)
+  // FUNÇÃO QUE FILTRA POR NOME
   filtraNome = ({target}) => {
+    console.log(target.value)
+    const letraGrande2 = (target.value).toLowerCase();
     this.setState((prev) => ({
-      savedCards: prev.savedCards.filter((element) => {
-        const letraGrande = (element.name).toUpperCase();
-        const letraGrande2 = (target.value).toUpperCase();
-        return (letraGrande).includes(letraGrande2);
-      })
+      savedCards: prev.savedCards.filter((element) => (element.cardName).toLowerCase().includes(letraGrande2))
     }));
   }
 
-    // FUNÇÃO QUE FILTRA POR RARIDADE (INCOMPLETO)
+    // FUNÇÃO QUE FILTRA POR RARIDADE
     filtraRaridade = ({ target }) => {
       this.setState(() => ({
         filtro: target.value,
       }), () => {
-        const { filtro } = this.state;
+        const { filtro, savedCards } = this.state;
         this.setState((prev) => ({
           cardList: filtro !== 'todas'
-            ? prev.savedCards.filter((carta) => target.value === carta.rare) : prev.cardList,
+            ? savedCards.filter((carta) => filtro === carta.cardRare.toLowerCase()) : prev.cardList,
         }));
       });
     }
@@ -114,36 +120,44 @@ class App extends Component {
 
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage, cardRare,
-    cardTrunfo, hasTrunfo, savedCards } = this.state;
+    cardTrunfo, hasTrunfo, savedCards, cardList } = this.state;
     return (
     <div className="App">
         <header className="App-header">
           <h1>Magic Cards</h1>
         </header>
+
+        <section className='nav'>
+        <h2>Monte a sua carta:</h2>
+        <h2>Preview da sua carta:</h2>
+        </section>
+        
+        <div className='nav1'>
           <Form 
-            cardName={cardName}
-            cardDescription={cardDescription}
-            cardAttr1={cardAttr1}
-            cardAttr2={cardAttr2}
-            cardAttr3={cardAttr3}
-            cardImage={cardImage}
-            cardRare={cardRare}
-            cardTrunfo={cardTrunfo}
-            hasTrunfo={hasTrunfo}
-            isSaveButtonDisabled={ this.isSaveButtonDisabled() }
-            onInputChange={ this.onInputChange }
-            onSaveButtonClick={ this.onSaveButtonClick }
-          /> 
-        <Card
-        cardName={cardName}
-        cardDescription={cardDescription}
-        cardAttr1={cardAttr1}
-        cardAttr2={cardAttr2}
-        cardAttr3={cardAttr3}
-        cardImage={cardImage}
-        cardRare={cardRare}
-        cardTrunfo={cardTrunfo}
-        />
+          cardName={cardName}
+          cardDescription={cardDescription}
+          cardAttr1={cardAttr1}
+          cardAttr2={cardAttr2}
+          cardAttr3={cardAttr3}
+          cardImage={cardImage}
+          cardRare={cardRare}
+          cardTrunfo={cardTrunfo}
+          hasTrunfo={hasTrunfo}
+          isSaveButtonDisabled={ this.isSaveButtonDisabled() }
+          onInputChange={ this.onInputChange }
+          onSaveButtonClick={ this.onSaveButtonClick }
+          />
+          <Card
+          cardName={cardName}
+          cardDescription={cardDescription}
+          cardAttr1={cardAttr1}
+          cardAttr2={cardAttr2}
+          cardAttr3={cardAttr3}
+          cardImage={cardImage}
+          cardRare={cardRare}
+          cardTrunfo={cardTrunfo}
+          />
+        </div>
 
         <AllCards 
         savedCards={savedCards}
@@ -151,6 +165,7 @@ class App extends Component {
         filtraNome={ this.filtraNome }
         filtraRaridade={ this.filtraRaridade }
         filtraTrunfo={this.filtraTrunfo}
+        cardList={ cardList }
         />
     </div>
     );

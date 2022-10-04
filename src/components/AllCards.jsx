@@ -3,7 +3,7 @@ import Card from "./Card";
 
 class AllCards extends Component {
   render() {
-    const { savedCards, removeCard, filtraTrunfo, filtraNome, filtraRaridade } = this.props;
+    const { savedCards, removeCard, filtraTrunfo, filtraNome, filtraRaridade, cardList } = this.props;
     return (
       <>
         <h1> Meu Deck Completo</h1>
@@ -37,7 +37,7 @@ class AllCards extends Component {
         </div>
         <div className="allCards">
           {
-            savedCards.map((element, index) => (
+            (cardList.length ? cardList : savedCards).map((element, index) => (
               <>
                 <Card
                 key={ index }

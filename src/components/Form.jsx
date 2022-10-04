@@ -7,11 +7,11 @@ class Form extends Component {
     return (
       <form className="form">
         <label>
-          <input type="text" name="cardName"  value={ cardName }  onChange={ onInputChange } placeholder="digite o nome da carta" />
+          <input type="text" name="cardName"  value={ cardName }  onChange={ onInputChange } placeholder="Digite o nome da carta" />
         </label>
 
         <label>
-          <textarea name="cardDescription" value={ cardDescription } onChange={ onInputChange } placeholder="digite uma descrição" />
+          <textarea name="cardDescription" value={ cardDescription } onChange={ onInputChange } placeholder="Digite uma descrição" />
         </label>
 
         <label>
@@ -27,7 +27,7 @@ class Form extends Component {
         </label>
 
         <label>
-          <input type="text" name="cardImage" value={ cardImage }  onChange={ onInputChange } placeholder="insira uma imagem" />
+          <input type="text" name="cardImage" value={ cardImage }  onChange={ onInputChange } placeholder="Insira uma imagem" />
         </label>
 
         <label> Raridade
