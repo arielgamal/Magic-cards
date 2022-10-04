@@ -74,7 +74,7 @@ Neste aplicativo, voce será capaz de criar sua própria carta.
 
   *** ERROS PARA CORRIGIR AINDA *** : CORRIGIR A RENDERIZAÇÃO DA CARTA
   
-### 9. [] - Criar o botao de remover carta do baralho
+### 9. [] - Criar o botao de remover carta do baralho (INCOMPLETO)
 
 #### CRIADO A FUNÇÃO;  
 
@@ -88,8 +88,26 @@ removeCard = ({target}) => {
   *** ESTA FUNÇÃO é uma HOF que filtra o elementos que ao clicar no botao excluir(que possui o cardName) retorna um array sem o elemento com aquele nome ***
 #### AINDA NÃO FUNCIONA
 
-### 10.[] - Criar o filtro pelo nome da carta
-### 11.[] - Criar o filtro pela raridade da carta
+### 10.[] - Criar o filtro pelo nome da carta (INCOMPLETO)
+
+Para filtro do nome, você deverá criar um campo do tipo text e adicionar o atributo data-testid="name-filter".
+
+Este campo deve ser renderizado sempre, mesmo se não existir cartas salvas no baralho.
+
+Ao digitar neste campo, deve ser renderizado na página apenas as cartas que contenham no nome o texto digitado.
+
+
+
+### 11.[] - Criar o filtro pela raridade da carta (INCOMPLETO)
+
+  Para filtrar por raridade, você deverá criar um campo do tipo select e adicionar o atributo data-testid="rare-filter";
+
+Este select deve possuir as seguintes options: todas, normal, raro e muito raro. Por padrão, a opção todas já deverá estar selecionada;
+
+Ao selecionar uma das opções, apenas as cartas que possuem a raridade especificada deverão ser renderizadas. Caso esteja selecionada todas, não deve ter filtro de raridade aplicado na lista.
+
+Se o campo do filtro Nome estiver preenchido, os dois filtros (por nome e por raridade) devem funcionar em conjunto.
+
 ### 12.[X] - Criar o filtro de carta TRUNFO
 
 * Foi criado um input tipo checkbox, que ao mudar, filtra a carta TRUNFO

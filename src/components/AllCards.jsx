@@ -3,12 +3,30 @@ import Card from "./Card";
 
 class AllCards extends Component {
   render() {
-    const { savedCards, removeCard, filtraTrunfo } = this.props;
+    const { savedCards, removeCard, filtraTrunfo, filtraNome, filtraRaridade } = this.props;
     return (
       <>
         <h1> Meu Deck Completo</h1>
         <div>
         <h2>Filtro de busca</h2>
+        
+        <label>
+        Filtrar por Nome:
+          <input type='text' onChange={ filtraNome } />
+        </label>
+        
+        <label>
+          Filtrar por radidade:
+          <select
+            onChange={filtraRaridade}
+          >
+            <option value="todas">Todas</option>
+            <option value="normal">Normal</option>
+            <option value="raro">Raro</option>
+            <option value="muito raro">Muito Raro</option>
+          </select>
+        </label>
+        
         <label>
         Filtar TRUNFO
         <input 
