@@ -72,6 +72,21 @@ class App extends Component {
     }
   }
 
+    //FUNCAO PARA REMOVER UMA CARTA DO ESTADO
+    // ESTA FUNÇÃO é uma HOF que filtra o elementos que ao clicar no botao excluir(que possui o cardName) retorna um array sem o elemento com aquele nome.
+  removeCard = ({target}) => {
+    this.setState((prev) => ({
+      savedCards: prev.savedCards.filter((element) => (target.name !== element.cardName)),
+    }));
+  }
+
+  // FUNÇÃO QUE FILTRA SE A CARTA É UM TRUNFO
+  filtraTrunfo = () => {
+    this.setState((prev) => ({
+      savedCards: prev.savedCards.filter((element) => element.cardTrunfo === true)
+    }))
+  }
+
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage, cardRare, cardTrunfo, hasTrunfo, savedCards } = this.state;
     return (
@@ -106,6 +121,8 @@ class App extends Component {
 
         <AllCards 
         savedCards={savedCards}
+        removeCard={ this.removeCard }
+        filtraTrunfo={this.filtraTrunfo}
         />
     </div>
     );

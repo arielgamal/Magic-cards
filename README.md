@@ -65,14 +65,41 @@ Neste aplicativo, voce será capaz de criar sua própria carta.
 * Será validado se o checkbox do TRUNFO é redenderizado ao carregar a página, e se o texto "Você já tem um TRUNFO em seu baralho" é renderizado caso já exista uma carta TRUNFO.
 
 ### 8. [X] - Exibir as cartas salvas no estado
-  #### Já possuo cartas criadas que estao salvar no estado allCards(um array de obejtos).
+  #### Já possuo cartas criadas que estao salvas no estado allCards(um array de obejtos).
 
-  - Renderizei o conjunto delas dentro do componente App. (Lista com todos as cartas salvas no estado allCards)]
+  - Renderizei o conjunto delas dentro do componente App. (Lista com todos as cartas salvas no estado allCards)
   - Conforme vou colocando cartas novas, ele é atualizado automaticamente.
   - Usei o componente Card para fazer isso.
+  - Criei o componente AllCards, fiz um map do componente Cards dentro dele percorrendo o estado allCards, que eu passei via props.
 
-  *** ERROS PARA CORRIGIR AINDA *** : CORRIGIR A RENDERIZAÇÃO DA CARTA e NA LISTA NAO APARECE A CARTA SUPER TRUNFO
+  *** ERROS PARA CORRIGIR AINDA *** : CORRIGIR A RENDERIZAÇÃO DA CARTA
+  
 ### 9. [] - Criar o botao de remover carta do baralho
+
+#### CRIADO A FUNÇÃO;  
+
+```js
+removeCard = ({target}) => {
+    this.setState((prev) => ({
+      savedCards: prev.savedCards.filter((element) => (target.cardName !== element.name)),
+    }));
+  }
+```
+  *** ESTA FUNÇÃO é uma HOF que filtra o elementos que ao clicar no botao excluir(que possui o cardName) retorna um array sem o elemento com aquele nome ***
+#### AINDA NÃO FUNCIONA
+
 ### 10.[] - Criar o filtro pelo nome da carta
 ### 11.[] - Criar o filtro pela raridade da carta
-### 12.[] - Criar o filtro de carta super
+### 12.[X] - Criar o filtro de carta TRUNFO
+
+* Foi criado um input tipo checkbox, que ao mudar, filtra a carta TRUNFO
+* Foi criado a função para filtrar o trunfo.
+
+``` js
+  filtraTrunfo = () => {
+    this.setState((prev) => ({
+      savedCards: prev.savedCards.filter((element) => element.cardTrunfo === true)
+    }))
+  }
+```
+
