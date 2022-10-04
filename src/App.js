@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import AllCards from './components/AllCards';
 import Card from './components/Card';
 import Form from './components/Form';
 
@@ -72,7 +73,7 @@ class App extends Component {
   }
 
   render() {
-    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage, cardRare, cardTrunfo, hasTrunfo } = this.state;
+    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage, cardRare, cardTrunfo, hasTrunfo, savedCards } = this.state;
     return (
     <div className="App">
         <header className="App-header">
@@ -100,8 +101,12 @@ class App extends Component {
         cardAttr3={cardAttr3}
         cardImage={cardImage}
         cardRare={cardRare}
-        cardTrunfo={false}
-        /> 
+        cardTrunfo={cardTrunfo}
+        />
+
+        <AllCards 
+        savedCards={savedCards}
+        />
     </div>
     );
   }

@@ -64,7 +64,14 @@ Neste aplicativo, voce será capaz de criar sua própria carta.
 
 * Será validado se o checkbox do TRUNFO é redenderizado ao carregar a página, e se o texto "Você já tem um TRUNFO em seu baralho" é renderizado caso já exista uma carta TRUNFO.
 
-### 8. [] - Exibir as cartas salvas no estado
+### 8. [X] - Exibir as cartas salvas no estado
+  #### Já possuo cartas criadas que estao salvar no estado allCards(um array de obejtos).
+
+  - Renderizei o conjunto delas dentro do componente App. (Lista com todos as cartas salvas no estado allCards)]
+  - Conforme vou colocando cartas novas, ele é atualizado automaticamente.
+  - Usei o componente Card para fazer isso.
+
+  *** ERROS PARA CORRIGIR AINDA *** : CORRIGIR A RENDERIZAÇÃO DA CARTA e NA LISTA NAO APARECE A CARTA SUPER TRUNFO
 ### 9. [] - Criar o botao de remover carta do baralho
 ### 10.[] - Criar o filtro pelo nome da carta
 ### 11.[] - Criar o filtro pela raridade da carta
